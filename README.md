@@ -1,7 +1,7 @@
 ### Screenshot
 
-![]('./src/assets/images/Screenshot_1.png')
-![]('./src/assets/images/Screenshot_mob.png')
+![]('./assets/images/Screenshot_1.png')
+![]('./assets/images/Screenshot_2.png')
 
 ## My process
 
