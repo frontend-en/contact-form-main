@@ -1,0 +1,405 @@
+@font-face {
+  font-family: "Karla";
+  src: url("../assets/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Karla Italic";
+  src: url("../assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* https://piccalil.li/blog/a-modern-css-reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  letter-spacing: -0.05px;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: hsl(148, 38%, 91%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  font-family: "Karla", sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.form {
+  width: 100%;
+  max-width: 343px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.form__title {
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: -1px;
+  color: hsl(187, 24%, 22%);
+  margin-bottom: 32px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.input-group label {
+  font-size: 16px;
+  color: hsl(187, 24%, 22%);
+  margin-bottom: 14px;
+}
+.input-group input,
+.input-group textarea {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  line-height: 150%;
+  color: hsl(187, 24%, 22%);
+  border: 1px solid hsl(186, 15%, 59%);
+  border-radius: 8px;
+  padding: 12px;
+}
+.input-group input {
+  height: 51px;
+}
+.input-group textarea {
+  height: 240px;
+  resize: vertical;
+}
+.input-group.error input,
+.input-group.error textarea {
+  border-color: #d73c3c;
+}
+
+.checkbox-group {
+  margin-bottom: 40px;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.checkbox-group input[type=checkbox] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid hsl(186, 15%, 59%);
+  border-radius: 4px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.checkbox-group input[type=checkbox]:checked {
+  background-image: url("../assets/images/add.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+}
+.checkbox-group input[type=checkbox]:focus {
+  outline: 2px solid hsl(187, 24%, 22%);
+  outline-offset: 2px;
+}
+
+.radio-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.radio-groups label {
+  margin-bottom: 0;
+}
+.radio-groups .radio-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid hsl(186, 15%, 59%);
+  border-radius: 8px;
+  padding: 12px 24px;
+  height: 51px;
+}
+.radio-groups .radio-group input[type=radio] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: hsl(169, 82%, 27%);
+  cursor: pointer;
+}
+.radio-groups .radio-group label {
+  cursor: pointer;
+}
+
+.error-message {
+  color: #d73c3c;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.input-check {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 48px;
+}
+.input-check > label {
+  margin-bottom: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+  font-family: "Karla", sans-serif;
+}
+
+legend {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: hsl(187, 24%, 22%);
+  margin-bottom: 12px;
+}
+legend > span {
+  margin-left: 8px;
+}
+
+button {
+  border-radius: 8px;
+  padding: 16px 40px;
+  width: 100%;
+  height: 59px;
+  background: hsl(169, 82%, 27%);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  color: hsl(0, 0%, 100%);
+}
+
+.submit-button {
+  width: 100%;
+  background-color: hsl(169, 82%, 27%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.submit-button:hover {
+  opacity: 0.9;
+}
+
+.success-toast {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background-color: hsl(187, 24%, 22%);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+.success-toast.show {
+  transform: translateX(-50%) translateY(24px);
+}
+.success-toast .toast-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.success-toast .toast-message {
+  color: hsl(0, 0%, 100%);
+}
+.success-toast .toast-message h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.success-toast .toast-message p {
+  font-size: 16px;
+}
+.success-toast .check-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 40px;
+  }
+  main {
+    max-width: 700px;
+  }
+  .form {
+    max-width: 600px;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .form__title {
+    width: 100%;
+    font-size: 40px;
+    margin-bottom: 32px;
+  }
+  .form .input-group:nth-child(2),
+  .form .input-group:nth-child(3) {
+    width: calc(50% - 24px / 2);
+    margin-right: 0;
+  }
+  .form .input-group:nth-child(4),
+  .form .input-group:nth-child(5),
+  .form .input-group:nth-child(6),
+  .form .checkbox-group {
+    width: 100%;
+  }
+  .form fieldset.input-group {
+    width: 100%;
+  }
+  .form fieldset.input-group .radio-groups {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+  .form fieldset.input-group .radio-groups .radio-group {
+    width: calc(50% - 24px / 2);
+  }
+  .radio-groups {
+    display: flex;
+    gap: 24px;
+  }
+  .radio-groups .radio-group {
+    flex: 1;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .form {
+    padding: 40px;
+    width: 736px;
+    max-width: 736px;
+  }
+}/*# sourceMappingURL=style.css.map */

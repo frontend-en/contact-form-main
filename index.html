@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/styles/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Contact form</title>
+</head>
+<body>
+  <main>
+    <form action="#" class="form" novalidate>
+      <h1 class="form__title">Contact Us</h1>
+
+      <div class="input-group">
+        <label for="firstname">First Name<span class="required">*</span></label>
+        <input type="text" id="firstname" name="firstname" aria-describedby="firstname-error" required />
+        <p class="error-message" id="firstname-error" hidden>Please enter your first name</p>
+      </div>
+
+      <div class="input-group">
+        <label for="lastname">Last Name<span class="required">*</span></label>
+        <input type="text" id="lastname" name="lastname" aria-describedby="lastname-error" required />
+        <p class="error-message" id="lastname-error" hidden>Please enter your last name</p>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address<span class="required">*</span></label>
+        <input type="email" id="email" name="email" aria-describedby="email-error" required />
+        <p class="error-message" id="email-error" hidden>Please enter a valid email address</p>
+      </div>
+
+      <fieldset class="input-group">
+        <legend>Query Type<span class="required">*</span></legend>
+        <div class="radio-groups">
+          <div class="radio-group">
+            <input type="radio" id="general" name="queryType" value="general" required aria-describedby="query-error">
+            <label for="general">General Enquiry</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" id="support" name="queryType" value="support" required aria-describedby="query-error">
+            <label for="support">Support Request</label>
+          </div>
+        </div>
+        <p class="error-message" id="query-error" hidden>Please select a query type</p>
+      </fieldset>
+
+      <div class="input-group">
+        <label for="message">Message<span class="required">*</span></label>
+        <textarea id="message" name="message" aria-describedby="message-error" required></textarea>
+        <p class="error-message" id="message-error" hidden>Please enter your message</p>
+      </div>
+
+      <div class="input-group checkbox-group">
+        <label for="consent">
+          <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required>
+          <p>I hereby consent to being contacted by the team <span class="required">*</span></p>
+        </label>
+        <p class="error-message" id="consent-error" hidden>Please provide your consent to proceed</p>
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+    
+    <div class="toast success-toast" role="alert" aria-live="polite" hidden>
+      <div class="toast-content">
+        <img src="./assets/images/icon-success-check.svg" alt="" aria-hidden="true" class="check-icon">
+        <div class="toast-message">
+          <h2>Message Sent!</h2>
+          <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./src/js/main.js"></script>
+</body>
+</html>
